@@ -1,5 +1,7 @@
 # Modern Java - A Guide to Java 8
 
+_If you like this project, please give me a star._ &#9733;
+
 > [“Java is still not dead—and people are starting to figure that out.”](https://twitter.com/mreinhold/status/429603588525281280)
 
 Welcome to my introduction to [Java 8](https://jdk8.java.net/). This tutorial guides you step by step through all new language features. Backed by short and simple code samples you'll learn how to use default interface methods, lambda expressions, method references and repeatable annotations. At the end of the article you'll be familiar with the most recent [API](http://download.java.net/jdk8/docs/api/) changes like streams, functional interfaces, map extensions and the new Date API. **No walls of text, just a bunch of commented code snippets. Enjoy!**
@@ -167,7 +169,7 @@ String converted = converter.convert("Java");
 System.out.println(converted);    // "J"
 ```
 
-Let's see how the `::` keyword works for constructors. First we define an example bean with different constructors:
+Let's see how the `::` keyword works for constructors. First we define an example class with different constructors:
 
 ```java
 class Person {
@@ -267,7 +269,7 @@ Remember the formula example from the first section? Interface `Formula` defines
 Default methods **cannot** be accessed from within lambda expressions. The following code does not compile:
 
 ```java
-Formula formula = (a) -> sqrt( a * 100);
+Formula formula = (a) -> sqrt(a * 100);
 ```
 
 
@@ -357,7 +359,7 @@ optional.ifPresent((s) -> System.out.println(s.charAt(0)));     // "b"
 
 A `java.util.Stream` represents a sequence of elements on which one or more operations can be performed. Stream operations are either _intermediate_ or _terminal_. While terminal operations return a result of a certain type, intermediate operations return the stream itself so you can chain multiple method calls in a row. Streams are created on a source, e.g. a `java.util.Collection` like lists or sets (maps are not supported). Stream operations can either be executed sequentially or parallely.
 
-> You should also check out [Stream.js](https://github.com/winterbe/streamjs), a JavaScript port of the Java 8 Streams API.
+> Streams are extremely powerful, so I wrote a separate [Java 8 Streams Tutorial](http://winterbe.com/posts/2014/07/31/java8-stream-tutorial-examples/). You should also check out [Stream.js](https://github.com/winterbe/streamjs), a JavaScript port of the Java 8 Streams API.
 
 Let's first look how sequential streams work. First we create a sample source in form of a list of strings:
 
@@ -729,7 +731,7 @@ System.out.println(string);     // Nov 03, 2014 - 07:13
 
 Unlike `java.text.NumberFormat` the new `DateTimeFormatter` is immutable and **thread-safe**.
 
-For details on the pattern syntax read [here](http://download.java.net/jdk8/docs/api/java/time/format/DateTimeFormatter.html).
+For details on the pattern syntax read [here](https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html).
 
 
 ## Annotations
