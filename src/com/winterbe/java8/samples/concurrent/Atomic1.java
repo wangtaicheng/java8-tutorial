@@ -40,7 +40,7 @@ public class Atomic1 {
     private static void testAccumulate() {
         atomicInt.set(0);
 
-        ExecutorService executor = Executors.newFixedThreadPool(2);
+        ExecutorService executor = Executors.newFixedThreadPool(4);
 
         IntStream.range(0, NUM_INCREMENTS)
                 .forEach(i -> {
