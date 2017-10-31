@@ -4,6 +4,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * 类名     :Executors4
@@ -35,18 +36,27 @@ public class Executors4 {
 
     public static void newFixedThreadPoolCase() {
         ExecutorService fixedThreadPool = Executors.newFixedThreadPool(3);
+        final AtomicInteger thread = new AtomicInteger();
         for (int i = 0; i < 10; i++) {
             final int index = i;
 
             fixedThreadPool.execute(() -> {
                         try {
-                            System.out.println(index);
-                            Thread.sleep(2000);
+                            thread.incrementAndGet();
+                            System.out.println(thread.get());
+                            Thread.sleep(5);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
                     }
             );
+        }
+        while (thread.get() <10) {
+            try {
+                Thread.sleep(5);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
     }
 

@@ -43,7 +43,7 @@ public class Localthread1 {
 
                     //2
                 threadLocal1.set(a);
-                    System.out.println("plus:" + Thread.currentThread().getName() + ": " + threadLocal1.get());
+                    System.out.println("plusLam:" + Thread.currentThread().getName() + ": " + threadLocal1.get());
             }).start();
         }
     }
